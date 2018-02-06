@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import NewsInput from './components/NewsInput';
+import Newsletter from './components/Newsletter';
 
 
 class App extends Component {
@@ -11,7 +11,7 @@ class App extends Component {
 
 
    <h1>#ClownSquad</h1>
-   < NewsInput />
+   < Newsletter />
    
 
 

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Button from './Button';
 
-class NewsInput extends Component {
+class Newsletter extends Component {
     constructor(props){
         super(props);
         this.state = {
@@ -16,7 +16,11 @@ updateEmail = (email) => {
 }
 
 updateEmail_List = () => {
+    let email = this.state.email;
+    let list = this.state.email_List;
+    console.log(list);
 
+    this.setState({email_List: list.push(email) })
 }
 
 
@@ -26,7 +30,7 @@ render(){
         <div>
 
         <input onChange = {(event) => {this.updateEmail(event.target.value)}} type='text' placeholder='Input Email'/>
-        < Button update = {this.updateEmail_List()} />
+        < Button update={this.updateEmail_List} />
 
         </div>
     )
@@ -36,4 +40,4 @@ render(){
 
 }
 
-export default NewsInput;
+export default Newsletter;
