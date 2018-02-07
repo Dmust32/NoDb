@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import Newsletter from './components/Newsletter';
+import RandomPic from './components/Random-Pic';
+
 
 
 class App extends Component {
@@ -12,6 +14,8 @@ class App extends Component {
 
    <h1>#ClownSquad</h1>
    < Newsletter />
+
+   < RandomPic />
    
 
 

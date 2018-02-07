@@ -18,9 +18,11 @@ updateEmail = (email) => {
 updateEmail_List = () => {
     let email = this.state.email;
     let list = this.state.email_List;
+    list.push(email);
     console.log(list);
 
-    this.setState({email_List: list.push(email) })
+    this.setState({email_List: list });
+    console.log(this.state.email_List)
 }
 
 

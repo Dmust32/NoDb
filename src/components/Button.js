@@ -2,8 +2,8 @@ import React from 'react';
 
 
 
-const Button = () => {
-    return <button onClick={ () => {this.props.update()}} > Join! </button>
+const Button = ({update}) => {
+    return <button onClick={ () => {update()}} > Join! </button>
     
 }
 
