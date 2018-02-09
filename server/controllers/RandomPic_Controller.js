@@ -7,8 +7,10 @@ module.exports = {
         const {comment} = req.body;
         const updateId = req.params.id;
         const picIndex = picArr.findIndex(pic => pic.id == updateId);
+        console.log(picIndex);
         picArr[picIndex].comments.push(comment);
-        res.send(picArr)
+        console.log(picArr[picIndex])
+        res.send(picArr[picIndex])
 
 
     },
@@ -24,11 +26,11 @@ module.exports = {
         const picIndex = picArr.findIndex(pic => pic.id == updateId);
         picArr[picIndex].comments.push(comment);
 
-        res.send(picArr);
+        res.send(picArr[picIndex]);
 
     },
 
-    deleteComment: (req, res) =>{
+    deletePic: (req, res) =>{
         const deleteId = req.params.id;
         const picId = picArr.findIndex(pic => pic.id == deleteId);
         picArr.splice(1, picId);

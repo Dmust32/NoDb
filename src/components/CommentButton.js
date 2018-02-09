@@ -19,7 +19,7 @@ class CommentButton extends Component {
                 comment: this.state.comment
             }
         }).then(response => {
-            this.setState({comment: response.data }) 
+            this.props.updateState(response.data)
         })
     }
 

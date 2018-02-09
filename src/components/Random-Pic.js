@@ -29,7 +29,13 @@ class RandomPic extends Component {
         let newPic = arr[Math.floor(Math.random()*arr.length)];
         this.setState({randomPic: newPic });
         console.log(this.state.randomPic)
+    };
+
+    updateRandomPic = (response) =>{
+        this.setState({randomPic: response})
     }
+
+
 
     render() {
         return(
@@ -37,7 +43,7 @@ class RandomPic extends Component {
                 < RandomButton update = {this.getRandomPic} />
                 {this.state.randomPic ? <div>
                     <img className= "pic" src = {this.state.randomPic.image} width = "300"/>
-                    < CommentButton pic={this.state.randomPic}/>    
+                    < CommentButton updateState={this.updateRandomPic} pic={this.state.randomPic}/>    
                 </div> : null}
                 
             </div>
