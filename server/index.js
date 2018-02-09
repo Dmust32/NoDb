@@ -10,18 +10,20 @@ app.use(cors());
 
 // Initial Pic GET endpoint
 
-app.post('/api/clownfish', RandomPic_Controller.post)
+app.get('/api/clownfish', RandomPic_Controller.read);
+
+app.post('/api/clownfish', RandomPic_Controller.post);
 
 
 // Random Picture Endpoints
 
-// app.post('/api/pics', RandomPic_Controller.create)
+ app.put('/api/comments/:id', RandomPic_Controller.createComment);
 
-// app.delete('/api/pics', RandomPic_Controller.delete)
+// app.delete('/api/comments', RandomPic_Controller.delete)
 
-// app.update('/api/pics', RandomPic_Controller.update)
+// app.update('/api/comments', RandomPic_Controller.update)
 
-// app.read('/api/pics', RandomPic_Controller.read)
+// app.read('/api/comments', RandomPic_Controller.read)
 
 
 

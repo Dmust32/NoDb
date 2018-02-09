@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Newsletter from './components/Newsletter';
 import RandomPic from './components/Random-Pic';
+// import CommentButton from './components/CommentButton';
 
 
 
@@ -11,11 +12,19 @@ class App extends Component {
       <div>
 
 
+   <div className = "news">   
+    <h1>#ClownSquad</h1>
+    < Newsletter />
+  </div>
 
-   <h1>#ClownSquad</h1>
-   < Newsletter />
-
+  <div className = "randomPic">
    < RandomPic />
+
+   <div>
+  </div>  
+  </div> 
+
+ 
    
 
 

@@ -1,60 +1,47 @@
 import React, { Component } from 'react';
 import RandomButton from './RandomButton';
+import CommentButton from './CommentButton';
 import axios from 'axios';
+import '../App.css';
 
 class RandomPic extends Component {
     constructor(props){
         super(props);
         this.state = {
             clownPics: [],
-            randomPic: ""
+            randomPic: null
         }
     }
 
     componentDidMount = () =>{
         axios({
             method: 'GET',
-            url: 'https://api.imgur.com/3/gallery/search?q=clownfish',
-            headers: {
-                Authorization: 'Client-ID 4cad3ba3fadfbd3'
-            }
+            url: 'http://localhost:5050/api/clownfish'
         }).then(response => {
-            console.log('response', response)
-            let id = 0;
-            const withComment = response.data.data.map(item => {
-                id++;
-                item.comment = '';
-                item.id = id;
-
-                return item;
-            })
-            return withComment;
-        }).then(newArray => {
-            axios({
-                method: 'POST',
-                url: 'http://localhost:5050/api/clownfish',
-                data: newArray.splice( 0, 10 )
-            }).then(newArray => {
-                console.log('this is newArray', newArray)
-                this.setState({ clownPics: newArray })
-            })
-        })
+            console.log('response', response);
+            this.setState({ clownPics: response.data })
+            console.log('new state', this.state.clownPics)
+        });
     };
 
     getRandomPic = () => {
         let arr = this.state.clownPics;
         let newPic = arr[Math.floor(Math.random()*arr.length)];
-        console.log(newPic);
-        this.setState({randomPic: newPic.data.data.link});
+        this.setState({randomPic: newPic });
         console.log(this.state.randomPic)
     }
 
     render() {
         return(
-            <div>
+            <div className = "randomizer" >
                 < RandomButton update = {this.getRandomPic} />
-
+                {this.state.randomPic ? <div>
+                    <img className= "pic" src = {this.state.randomPic.image} width = "300"/>
+                    < CommentButton pic={this.state.randomPic}/>    
+                </div> : null}
+                
             </div>
+            
         )
     }
 };
