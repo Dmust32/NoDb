@@ -9,7 +9,8 @@ class RandomPic extends Component {
         super(props);
         this.state = {
             clownPics: [],
-            randomPic: null
+            randomPic: null,
+            comments: false
         }
     }
 
@@ -27,13 +28,33 @@ class RandomPic extends Component {
     getRandomPic = () => {
         let arr = this.state.clownPics;
         let newPic = arr[Math.floor(Math.random()*arr.length)];
-        this.setState({randomPic: newPic });
+        this.setState({randomPic: newPic, comments: false});
         console.log(this.state.randomPic)
     };
 
     updateRandomPic = (response) =>{
-        this.setState({randomPic: response})
+        this.setState({randomPic: response, comments: true})
+    };
+
+    deleteComments = (id) =>{
+        axios({
+            method: 'DELETE',
+            url:`http://localhost:5050/api/comments/${id}`
+        }).then(response => {
+            this.setState({randomPic: response.data})
+        })
+    };
+
+    readComments = (id) => {
+        axios({
+            method: 'GET',
+            url:`http://localhost:5050/api/comments/${id}`
+        }).then(response => {
+            this.setState({randomPic: response, comments: true})
+        })
     }
+
+
 
 
 
@@ -43,9 +64,13 @@ class RandomPic extends Component {
                 < RandomButton update = {this.getRandomPic} />
                 {this.state.randomPic ? <div>
                     <img className= "pic" src = {this.state.randomPic.image} width = "300"/>
-                    < CommentButton updateState={this.updateRandomPic} pic={this.state.randomPic}/>    
+                    {/* <button onClick= {()=>{this.readComments(this.state.randomPic.id)}}>Get Comments</button> */}
+                    < CommentButton updateState={this.updateRandomPic} pic={this.state.randomPic}/>
                 </div> : null}
-                
+
+                {this.state.comments ? <div>
+                    <button className="button" onClick= {()=> {this.deleteComments(this.state.randomPic.id)}}>Delete Comments</button> 
+                </div> : null}
             </div>
             
         )

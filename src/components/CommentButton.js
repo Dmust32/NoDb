@@ -33,7 +33,7 @@ class CommentButton extends Component {
         return(
             <div>
                 <input value={this.state.comment} onChange={this.handleInputChange}/>
-                <button onClick = {() => {this.createComment(this.props.pic.id)}} >Comment</button>
+                <button className="button" onClick = {() => {this.createComment(this.props.pic.id)}} >Comment</button>
                 < Comments comments={this.props.pic.comments} />
             </div>
         )

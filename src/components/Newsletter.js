@@ -22,7 +22,8 @@ updateEmail_List = () => {
     console.log(list);
 
     this.setState({email_List: list });
-    console.log(this.state.email_List)
+    console.log(this.state.email_List);
+    alert("Welcome to the Clown Squad!")
 }
 
 
@@ -32,7 +33,7 @@ render(){
         <div>
 
         <input onChange = {(event) => {this.updateEmail(event.target.value)}} type='text' placeholder='Input Email'/>
-        < Button update={this.updateEmail_List} />
+        < Button  update={this.updateEmail_List} />
 
         </div>
     )

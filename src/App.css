@@ -3,9 +3,10 @@
     flex-direction: column;
     align-content: center;
     align-items: center;
+    padding: 20px;
 
 
-    background-color: rgb(62, 62, 190);
+    background-color: #541E1D;
 
 }
 
@@ -14,5 +15,21 @@
     flex-direction: row;
     align-content: center;
     justify-content: center;
+    padding: 20px
+}
+h1{
+    color: white
 }
 
+body{
+    background-color: #262626
+}
+
+.comments{
+    color: white
+}
+
+.button{
+    background-color: #549091;
+    color: white;
+}

@@ -9,29 +9,17 @@ import RandomPic from './components/Random-Pic';
 class App extends Component {
   render() {
     return (
-      <div>
+  <div>
+    <div className = "news">   
+      <h1>#ClownSquad</h1>
+      < Newsletter />
+    </div>
 
-
-   <div className = "news">   
-    <h1>#ClownSquad</h1>
-    < Newsletter />
+    <div className = "randomPic">
+      < RandomPic />
+    </div> 
+    
   </div>
-
-  <div className = "randomPic">
-   < RandomPic />
-
-   <div>
-  </div>  
-  </div> 
-
- 
-   
-
-
-
-
-
-      </div>
     );
   }
 }

@@ -6,7 +6,7 @@ class RandomButton extends Component {
      render() {
         return(
 
-            <button onClick = {this.props.update} >Random!</button>
+            <button className="button" onClick = {this.props.update} >Random!</button>
 
             
         )

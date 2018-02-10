@@ -19,11 +19,11 @@ app.post('/api/clownfish', RandomPic_Controller.post);
 
  app.put('/api/comments/:id', RandomPic_Controller.createComment);
 
-// app.delete('/api/comments', RandomPic_Controller.deletePic)
+app.delete('/api/comments/:id', RandomPic_Controller.deleteComments)
 
-// app.update('/api/comments', RandomPic_Controller.update)
+// app.update('/api/comments/', RandomPic_Controller.update)
 
-// app.read('/api/comments', RandomPic_Controller.read)
+app.get('/api/comments/:id', RandomPic_Controller.readComments)
 
 
 

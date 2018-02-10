@@ -15,9 +15,9 @@ module.exports = {
 
     },
 
-    readComment: (req, res) =>{
+    readComments: (req, res) =>{
         const {id} = req.body;
-        res.send(picArr[id].comment)
+        res.send(picArr[id])
     },
 
     updateComment: (req, res) =>{
@@ -30,11 +30,13 @@ module.exports = {
 
     },
 
-    deletePic: (req, res) =>{
+    deleteComments: (req, res) =>{
         const deleteId = req.params.id;
-        const picId = picArr.findIndex(pic => pic.id == deleteId);
-        picArr.splice(1, picId);
-        res.send(picArr);
+        const picIndex = picArr.findIndex(pic => pic.id == deleteId);
+        picArr[picIndex].comments = [];
+        console.log(picArr[picIndex])
+        
+        res.send(picArr[picIndex]);
 
     },
 
